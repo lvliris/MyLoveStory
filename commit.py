@@ -21,7 +21,7 @@ class Progress(object):
     def update(self, file_path, commit_message, date=None):
         self.add(file_path)
         self.commit(commit_message, date)
-        # self.push()
+        self.push()
 
 
 def test():
@@ -38,12 +38,10 @@ def main():
             res = schedule.write_message(cur_date)
             if res is not None:
                 modified_file, message, date = res
-                if date == '2021-11-04 05:20:00':
-                    break
                 progress.update(modified_file, message, date)
                 print(date, message)
 
-            # time.sleep(520)
+            time.sleep(520)
     except KeyboardInterrupt:
         print('program has finished, but love will continue')
 
